@@ -15,11 +15,8 @@ const collectEmployees = function() {
   let lastName = window.prompt("Enter employee's last name"); if (!lastName) {
     return;
   }
-  let salary = window.prompt("Enter salary"); if (!salary) {
-    style: "currency";
-    currency: "USD";
-    return;
-  }
+  let salary = window.prompt("Enter salary");   if (isNaN(salary)) {
+    window.alert("Please enter a valid salary.");}
   //Employee variables are inputed above
   let employee = {
     firstName: firstName,
@@ -43,6 +40,21 @@ const displayAverageSalary = function(employeesArray) {
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+    
+  // Check if there are employees in the array
+    if (employeesArray.length === 0) {
+        console.log("No employees available.");
+        return;
+    }
+
+    // Generate a random index within the range of the array length
+    const randomIndex = Math.floor(Math.random() * employeesArray.length);
+
+    // Get the random employee at the generated index
+    const randomEmployee = employeesArray[randomIndex];
+
+    // Output the details of the random employee
+    console.log('Random Employee:', randomEmployee.firstName, randomEmployee.lastName);
 }
 
 /*
